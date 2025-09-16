@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "astrorfnet"
 version = "0.1.0"
-description = "AstroRF-Net: Astrocyte/Glioblast/Radial-Glial classifier for single-cell AnnData"
+description = "AstroRF-Net: classifier for Astrocyte / Glioblast / Radial-Glial on AnnData"
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
@@ -20,5 +20,13 @@ dependencies = [
   "openpyxl>=3.1"
 ]
 
+# 生成命令行：安装后可直接用 `astrorfnet ...`
 [project.scripts]
 astrorfnet = "astrorfnet.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["astrorfnet*"]
