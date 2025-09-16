@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astrorfnet"
+version = "0.1.0"
+description = "AstroRF-Net: Astrocyte/Glioblast/Radial-Glial classifier for single-cell AnnData"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Your Name", email = "you@example.com"}]
+dependencies = [
+  "anndata>=0.10",
+  "numpy>=1.24",
+  "pandas>=1.5",
+  "scipy>=1.10",
+  "torch>=2.0",
+  "skorch>=0.15",
+  "openpyxl>=3.1"
+]
+
+[project.scripts]
+astrorfnet = "astrorfnet.cli:main"
