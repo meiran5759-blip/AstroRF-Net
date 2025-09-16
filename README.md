@@ -6,4 +6,4 @@ Pipeline: **log2(CPM+1) normalization → select top-50 RF markers → NN infere
 ## Install
 ```bash
 pip install -r requirements.txt
-pip install -e .
+pip install -i https://test.pypi.org/simple/ astrorfnet
