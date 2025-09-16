@@ -1,0 +1,7 @@
+anndata>=0.10
+numpy>=1.24
+pandas>=1.5
+scipy>=1.10
+torch>=2.0
+skorch>=0.15
+openpyxl>=3.1
