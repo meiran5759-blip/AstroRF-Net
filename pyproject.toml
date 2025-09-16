@@ -9,7 +9,7 @@ description = "AstroRF-Net: classifier for Astrocyte / Glioblast / Radial-Glial 
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
-authors = [{name = "Your Name", email = "you@example.com"}]
+authors = [{name = "Mei Ran", email = "meiran5759@gmail.com"}]
 dependencies = [
   "anndata>=0.10",
   "numpy>=1.24",

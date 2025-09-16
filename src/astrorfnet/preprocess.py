@@ -35,6 +35,8 @@ def prepare_marker_tensor(
     fill_missing: float = 0.0
 ) -> Tuple[torch.Tensor, List[str], List[str]]:
     var_names = adata.var_names.astype(str)
+
+    # 构造索引映射
     if case_insensitive:
         var_lower = pd.Index([g.lower() for g in var_names])
         idx_map = {g: i for i, g in enumerate(var_lower)}
@@ -42,29 +44,34 @@ def prepare_marker_tensor(
         for m in marker_genes:
             key = m.lower()
             if key in idx_map:
-                idxs.append(idx_map[key]); found.append(m)
+                idxs.append((m, idx_map[key])); found.append(m)
             else:
-                idxs.append(None); missing.append(m)
+                idxs.append((m, None)); missing.append(m)
     else:
         idx_map = {g: i for i, g in enumerate(var_names)}
         idxs, found, missing = [], [], []
         for m in marker_genes:
             if m in idx_map:
-                idxs.append(idx_map[m]); found.append(m)
+                idxs.append((m, idx_map[m])); found.append(m)
             else:
-                idxs.append(None); missing.append(m)
+                idxs.append((m, None)); missing.append(m)
 
+    # --- 新增：对基因名进行排序 ---
+    idxs = sorted(idxs, key=lambda x: x[0])   # 按基因名排序
+    sorted_genes = [g for g, _ in idxs]
+
+    # 提取表达矩阵
     X = adata.X
     if issparse(X):
         X = X.toarray()
     X = X.astype(np.float32, copy=False)
 
     n_cells = X.shape[0]
-    feat = np.empty((n_cells, len(marker_genes)), dtype=np.float32)
-    for j, idx in enumerate(idxs):
+    feat = np.empty((n_cells, len(sorted_genes)), dtype=np.float32)
+    for j, (gene, idx) in enumerate(idxs):
         if idx is None:
             feat[:, j] = fill_missing
         else:
             feat[:, j] = X[:, idx]
-    return torch.from_numpy(feat), found, missing
 
+    return torch.from_numpy(feat), sorted_genes, missing
