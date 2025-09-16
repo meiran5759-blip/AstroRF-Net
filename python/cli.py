@@ -23,5 +23,5 @@ def main():
         fill_missing=args.fill_missing,
         out_obs_col=args.col,
     )
-    adata.write_h5ad(args.out)
+    #adata.write_h5ad(args.out)
     print(f"[AstroRF-Net] Done. Found {len(diag['found_genes'])}/50 markers. Missing: {len(diag['missing_genes'])}.")
