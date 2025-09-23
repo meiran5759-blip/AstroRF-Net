@@ -10,8 +10,8 @@ pip install -i https://test.pypi.org/simple/ astrorfnet
 ```
 
 ## Preparation
-- **[Example_adata](https://github.com/meiran5759-blip/AstroRF-Net/releases/download/v0.1.0/Gene_importance_3Celltype_233gene_mean.xlsx)**
-- **[AstroRF-Net parameters](https://github.com/meiran5759-blip/AstroRF-Net/releases/download/v0.1.0/Gene_importance_3Celltype_233gene_mean.xlsx)**
+- **[Example_adata](https://github.com/meiran5759-blip/AstroRF-Net/releases/latest/download/example_adata.h5ad)**
+- **[AstroRF-Net parameters](https://github.com/meiran5759-blip/AstroRF-Net/releases/download/v0.1.0/net.params)**
 - **[Gene importance](https://github.com/meiran5759-blip/AstroRF-Net/releases/download/v0.1.0/Gene_importance_3Celltype_233gene_mean.xlsx)**
 
 
