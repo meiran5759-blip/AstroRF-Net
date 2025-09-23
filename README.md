@@ -17,6 +17,7 @@ pip install -i https://test.pypi.org/simple/ astrorfnet
 ## Usage
 ```python
 import scanpy as sc
+import torch
 import astrorfnet
 from astrorfnet import run_astro_rf_net
 example_adata = sc.read_h5ad('/path/to/example_adata.h5ad')
